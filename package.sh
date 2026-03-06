@@ -22,7 +22,14 @@ cp -r tests/ "$TARGET/tests/"
 cp -r references/ "$TARGET/references/"
 cp SKILL.md "$TARGET/"
 cp README.md "$TARGET/"
-cp .env.example "$TARGET/"
+cp .env.example "$TARGET/env.example.txt"
+
+# Rename dotfiles to .txt for compatibility
+find "$TARGET" -name '.*' -type f | while read f; do
+  dir=$(dirname "$f")
+  base=$(basename "$f")
+  mv "$f" "$dir/${base#.}.txt"
+done
 
 # Clean unwanted files from dist
 find "$TARGET" -name '__pycache__' -type d -exec rm -rf {} + 2>/dev/null || true
