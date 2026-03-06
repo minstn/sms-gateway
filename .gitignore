@@ -1,0 +1,19 @@
+# Secrets
+.env
+.token.json
+
+# Claude Code local config (contains session-specific permissions)
+.claude/
+
+# Packaged skill archives
+*.skill
+dist/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
